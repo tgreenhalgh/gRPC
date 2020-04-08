@@ -23,7 +23,7 @@ req := &greetpb.GreetRequest{
   }
 ```
 
-now that we have our `req` (we don't need the options):
+now that we have our `req`, put that in as a parameter. We don't need the options, do just delete them:
 
 ```go
 c.Greet(context.Background(), req) (*GreetResponse, error)
