@@ -15,7 +15,7 @@ c.Greet(context.Background(), in *GreetRequest, opts ...grpc.CallOption) (*Greet
 need to set the request (the parameter `in`). looking at greet.pb.go, see that a GreetRequest takes a type `Greeting`, then add in what `Greeting` takes (FirstName, LastName):
 
 ```go
-req := &greetpb.GreetRequest{
+  req := &greetpb.GreetRequest{
     Greeting: &greetpb.Greeting{
       FirstName: "Thomas",
       LastName:  "Greenhalgh",
@@ -32,14 +32,14 @@ c.Greet(context.Background(), req) (*GreetResponse, error)
 use the returns (if err, log it; log res (remembering `Result` is returned))
 
 ```go
-res, err := c.Greet(context.Background(), req)
+  res, err := c.Greet(context.Background(), req)
   if err != nil {
     log.Fatalf("error while calling Greet RPC : %v", err)
   }
   log.Printf("Response from Greet: %v", res.Result)
 ```
 
-organize the code into its own function:
+organize the code into its own function. Note that `NewGreetServiceClient` returns a `GreetServiceClient`:
 
 ```go
 {
