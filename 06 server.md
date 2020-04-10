@@ -49,7 +49,7 @@ s := grpc.NewServer()
 greetpb.RegisterGreetServiceServer(s, &server{})
 ```
 
-modules need to be working, or it won't find `greetpb`
+Modules need to be working, or it won't find `greetpb`
 the import should look something like `"go/gRPC/thomas/greet/greetpb"`
 
 add
@@ -61,7 +61,7 @@ if err := s.Serve(lis); err != nil {
 ```
 
 ---
-at this point, `server.go` should look something like:
+At this point, `server.go` should look something like:
 
 ```go
 package main
@@ -96,8 +96,8 @@ func main() {
 }
 ```
 
-you can test again with `go run greet/greet_server/server.go`
+You can test again with `go run greet/greet_server/server.go`
 
-you should see: `gRPC server running`
+You should see: `gRPC server running`
 
-hit ctrl-c to stop the server
+Hit ctrl-c to stop the server

@@ -1,18 +1,18 @@
 ## add unary API to client
 
-from `c := greetpb.NewGreetServiceClient(cc)` there are now functions available on `c` from `greet.pb.go`, specifically `Greet`
+From `c := greetpb.NewGreetServiceClient(cc)` there are now functions available on `c` from `greet.pb.go`, specifically `Greet`
 
 ```go
 c.Greet(ctx context.Context, in *GreetRequest, opts ...grpc.CallOption) (*GreetResponse, error)
 ```
 
-we need to set the context
+We need to set the context: context.[`Background()`](https://golang.org/pkg/context/#Background) returns a non-nil, empty Context.
 
 ```go
 c.Greet(context.Background(), in *GreetRequest, opts ...grpc.CallOption) (*GreetResponse, error)
 ```
 
-need to set the request (the parameter `in`). looking at greet.pb.go, see that a GreetRequest takes a type `Greeting`, then add in what `Greeting` takes (FirstName, LastName):
+Next, we need to set the request (the parameter `in`). Looking at greet.pb.go, see that a GreetRequest takes a type `Greeting`, then add in what `Greeting` takes (FirstName, LastName):
 
 ```go
   req := &greetpb.GreetRequest{
@@ -23,13 +23,13 @@ need to set the request (the parameter `in`). looking at greet.pb.go, see that a
   }
 ```
 
-now that we have our `req`, put that in as a parameter. We don't need the options, so just delete them:
+Now that we have our `req`, put that in as a parameter. We don't need the options, so just delete them:
 
 ```go
 c.Greet(context.Background(), req) (*GreetResponse, error)
 ```
 
-use the returns (if err, log it; log res (remembering `Result` is returned))
+Use the returns (if err, log it; log res (remembering `Result` is returned))
 
 ```go
   res, err := c.Greet(context.Background(), req)
@@ -39,7 +39,7 @@ use the returns (if err, log it; log res (remembering `Result` is returned))
   log.Printf("Response from Greet: %v", res.Result)
 ```
 
-organize the code into its own function. Note that `NewGreetServiceClient` returns a `GreetServiceClient`:
+Organize the code into its own function. Note that `NewGreetServiceClient` returns a `GreetServiceClient`:
 
 ```go
 {

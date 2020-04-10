@@ -10,7 +10,7 @@
 - returns a `GreetResponse` which contains the string
   - `result`
 
-in the `greet.proto` file add the message:
+In the `greet.proto` file add the message:
 
 ```proto
 message Greeting {
@@ -19,7 +19,7 @@ message Greeting {
 }
 ```
 
-the tags, 1 and 2, are showing which field they are. That is, first_name is the first field of our Greeting message.
+The tags, 1 and 2, are showing which field they are. That is, first_name is the first field of our Greeting message.
 
 then add the `request` (it uses a Greeting):
 
@@ -38,9 +38,9 @@ message GreetResponse {
 ```
 
 ---
-update `GreetService`
+Update `GreetService`
 
-note that `Greet` takes input and returns output: `Greet(input) returns (output)`
+Note that `Greet` takes input and returns output: `Greet(input) returns (output)`
 
 the `{}` are for options
 
@@ -54,7 +54,7 @@ service GreetService {
 Convention is when naming your RPC 'Something', the request and response are 'SomethingRequest' and 'SomethingResponse'
 
 ---
-the file should now look like:
+The file should now look like:
 
 ```proto
 syntax = "proto3";

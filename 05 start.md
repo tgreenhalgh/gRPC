@@ -4,7 +4,7 @@ Install Go
 
 Install & configure VSCode
 
-on Mac: `brew install protobuf`
+On Mac: `brew install protobuf`
 
 `go get -u google.golang.org/grpc`
 
@@ -41,7 +41,7 @@ to create a `pb.go` file (in our case, greet.pb.go)
 
 ---
 
-to make life easier, can put that command into a script:
+To make life easier, can put that command into a script:
 
 `generate.sh`
 ```sh

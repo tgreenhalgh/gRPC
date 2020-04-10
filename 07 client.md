@@ -1,8 +1,8 @@
 ## client
 
-create `greet_client` dir
+Create `greet_client` dir
 
-create `client.go` file in that dir
+Create `client.go` file in that dir
 
 ```go
 package main
@@ -14,7 +14,7 @@ func main() {
 }
 ```
 
-can test with
+You can test with
 
 ```go
 go run greet/greet_client/client.go
@@ -33,19 +33,19 @@ if you want
 
 (again, make sure "google.golang.org/grpc" appears in import)
 
-  use defer to close the connection when things are done executing
+Use defer to close the connection when things are done executing
   
-  ```go
-  // close the connection when done
-  defer cc.Close()
-  ```
+```go
+// close the connection when done
+defer cc.Close()
+```
 
-  actually create the client (the `\n` is to make it easier to read)
+Actually create the client (the `\n` is to make it easier to read)
 
-  ```go
-  c := greetpb.NewGreetServiceClient(cc)
-  fmt.Printf("\nCreated client: %f\n\n", c)
-  ```
+```go
+c := greetpb.NewGreetServiceClient(cc)
+fmt.Printf("\nCreated client: %f\n\n", c)
+```
 
 (make sure "go/gRPC/thomas/greet/greetpb" is imported)
 
@@ -80,10 +80,10 @@ func main() {
 }
 ```
 
-test with
+And you can test with
 
 ```go
 go run greet/greet_client/client.go
 ```
 
-and you should get a message saying "Created client: &{%!f(*grpc." with a bunch more stuff after
+you should get a message saying "Created client: &{%!f(*grpc." with a bunch more stuff after

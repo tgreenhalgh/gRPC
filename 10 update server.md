@@ -8,7 +8,7 @@ Copy the interface code just before `func main()`
 Greet(context.Context, *GreetRequest) (*GreetResponse, error)
 ```
 
-fill it out with a pointer to our server
+Fill it out with a pointer to our server
 
 ```go
 func (*server) Greet(context.Context, *GreetRequest) (*GreetResponse, error) {
@@ -32,10 +32,10 @@ func (*server) Greet(ctx context.Context, req *greetpb.GreetRequest) (*greetpb.G
 }
 ```
 
-remember, `(*greetpb.GreetResponse, error)` is the return type.
+Remember, `(*greetpb.GreetResponse, error)` is the return type.
 
 ---
-Filling out the function.
+Filling out the function
 
 The `req` object has `GetGreeting()` (find it in the greet.pb.go file) and `Greeting` has `GetFirstName()`
 
@@ -56,7 +56,7 @@ func (*server) Greet(ctx context.Context, req *greetpb.GreetRequest) (*greetpb.G
 }
 ```
 
-final `server.go` code should look like:
+The final `server.go` code should look like:
 
 ```go
 package main
@@ -102,4 +102,3 @@ func main() {
 ```
 
 Run the server and let's build the client.
-
